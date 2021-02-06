@@ -361,8 +361,34 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
-  return 2;
+  unsigned sign, exp, frac;
+  sign = uf & 0x80000000;
+  exp = (uf >> 23) & 0xff;
+  frac = uf & 0x007fffff;
+  
+  if(exp == 0xff)
+    return uf;
+  if(exp == 0)
+  {
+    if(frac & 0x00400000)
+      ++exp;
+    frac = (frac << 1) & 0x007fffff;
+  }
+  else
+  {
+    ++exp;
+    if(exp == 0xff)
+      frac = 0;
+  }
+  return sign | (exp << 23) | frac;
 }
+/*
+ * 计算2.0*uf
+ * 当exp是最大值或NAN时,不能做乘法了,直接返回
+ * 如果传入非规格的值,那接下来考虑frac的值,如果等于0表示±0.0
+ * 只需要将原数乘二再加上符号位就行
+ * 正常情况exp(指数)+1即可
+ */
 
 
 /* 
@@ -378,9 +404,37 @@ unsigned floatScale2(unsigned uf) {
  *   Rating: 4
  */
 int floatFloat2Int(unsigned uf) {
-  return 2;
-}
+  int sign,exp,frac;
+  sign = uf>>31;
+  exp = ((uf&0x7f800000)>>23)-127;
+  frac = (uf&0x007fffff) | 0x00800000;
+  if(!(uf&0x7fffffff))
+    return 0;
 
+  if(exp > 31)
+    return 0x80000000;
+
+  if(exp < 0)
+    return 0;
+
+  if(exp > 23)
+    frac <<= (exp-23);
+  else
+    frac >>= (23-exp);
+
+  if(!((frac>>31)^sign))
+    return frac;
+  else if(frac>>31)
+    return 0x80000000;
+  else
+    return ~frac+1;
+}
+/*
+ * 将浮点数转换为整数
+ * 如果指数过大,返回0x8000000,如果exp<0返回0
+ * 如果和原符号相同就直接返回
+ * 如果原来为负数,结果却为整数,就返回补码,否则返回0x80000000.
+ */
 
 /* 
  * floatPower2 - Return bit-level equivalent of the expression 2.0^x
@@ -396,6 +450,15 @@ int floatFloat2Int(unsigned uf) {
  *   Rating: 4
  */
 unsigned floatPower2(int x) {
-
-  return 2;
+  int exp = x + 127;
+  if(exp <= 0)
+    return 0;
+  if(exp >= 255)
+    return 0xff<<23;
+  return exp << 23;
 }
+
+/*
+ * 2.0的x方
+ * 判断一下越界和0即可
+ */
