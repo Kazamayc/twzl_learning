@@ -2,7 +2,7 @@
 
 **#csapp**
 
-第一周[2.1-2.7]：学习了csapp一到三章，CSAPP LAB做完了[data lab](https://github.com/Kazamayc/twzl_learning/blob/master/week1-2/1.data%20lab/1.datalab.c)，[bomb lab](https://github.com/Kazamayc/twzl_learning/blob/master/week1-2/2.bomb%20lab/2.bomb%20lab.md)做到第四个.
+第一周[2.1-2.7]：学习了csapp一到三章，[data lab](https://github.com/Kazamayc/twzl_learning/blob/master/week1-2/1.data%20lab/1.datalab.c)做完了，[bomb lab](https://github.com/Kazamayc/twzl_learning/blob/master/week1-2/2.bomb%20lab/2.bomb%20lab.md)做到第四个.
 
 第二周[2.8-2.14]：[bomb lab](https://github.com/Kazamayc/twzl_learning/blob/master/week1-2/2.bomb%20lab/2.bomb%20lab.md)做完，[attack lab](https://github.com/Kazamayc/twzl_learning/tree/master/week1-2/3.attack%20lab)做了一半.
 
