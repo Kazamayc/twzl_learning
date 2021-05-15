@@ -10,9 +10,7 @@
 
 思考题：程序是怎么加载进内存的(等看完书之后再答)
 
-2.22更：还60天高考，我先去备考了（爬了），不过中途应该会看看南大的[计算机基础视频](https://www.bilibili.com/video/BV1kE411X7S5)
 
-![img](https://i.loli.net/2021/02/22/fFhroublmJR59Xn.png)
 
 **#csapp links:**
 
