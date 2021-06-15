@@ -19,5 +19,5 @@
 
 第六七周ctf-pwn[5.24-6.6]：学习[ctfwiki](https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/)，并在[buuoj](https://buuoj.cn/)做题。学习csapp第9章。
 
-
+第八周[6.7-6.13]：本周主要是刷题，然后准备开始学习[南大的pa](https://kazamayc.github.io/2021/06/10/%C2%96%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/)。进度不快，朋友们高考完之后摸了摸鱼，这两个周还要准备科目一。下个周尽量提一提速度。
 
